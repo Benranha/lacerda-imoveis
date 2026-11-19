@@ -6,7 +6,7 @@
   var ctx = cv.getContext('2d');
   var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var W = 0, H = 0, dpr = 1, paredes = [], salas = [], ondas = [];
+  var W = 0, H = 0, barra = 0, dpr = 1, paredes = [], salas = [], ondas = [];
   var px = -9999, py = -9999, alvoX = -9999, alvoY = -9999, sujo = true, rodando = false, mexeu = false;
   var RAIO = 190;
 
@@ -48,7 +48,8 @@
 
   function medir() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = window.innerWidth; H = window.innerHeight;
+    barra = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--barra')) || 0;
+    W = window.innerWidth; H = window.innerHeight - barra;
     cv.width = Math.floor(W * dpr); cv.height = Math.floor(H * dpr);
     cv.style.width = W + 'px'; cv.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -132,15 +133,15 @@
   function acorda() { if (!rodando) { sujo = true; laco(); } else { sujo = true; } }
 
   if (!calmo) {
-    window.addEventListener('mousemove', function (e) { if (e.clientX || e.clientY) mexeu = true; alvoX = e.clientX; alvoY = e.clientY; acorda(); }, { passive: true });
+    window.addEventListener('mousemove', function (e) { if (e.clientX || e.clientY) mexeu = true; alvoX = e.clientX; alvoY = e.clientY - barra; acorda(); }, { passive: true });
     window.addEventListener('mouseleave', function () { mexeu = false; alvoX = -9999; alvoY = -9999; acorda(); });
     window.addEventListener('touchmove', function (e) {
       var t = e.touches[0]; if (!t) return;
-      mexeu = true; alvoX = t.clientX; alvoY = t.clientY; acorda();
+      mexeu = true; alvoX = t.clientX; alvoY = t.clientY - barra; acorda();
     }, { passive: true });
     window.addEventListener('pointerdown', function (e) {
-      mexeu = true; ondas.push({ x: e.clientX, y: e.clientY, r: 10, v: 1 });
-      alvoX = e.clientX; alvoY = e.clientY; acorda();
+      mexeu = true; ondas.push({ x: e.clientX, y: e.clientY - barra, r: 10, v: 1 });
+      alvoX = e.clientX; alvoY = e.clientY - barra; acorda();
     }, { passive: true });
   }
   window.addEventListener('scroll', acorda, { passive: true });
