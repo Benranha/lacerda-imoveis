@@ -75,9 +75,13 @@
       fig.setAttribute('role', 'group');
       fig.setAttribute('aria-roledescription', 'slide');
       fig.setAttribute('aria-label', (i + 1) + ' de ' + destaques.length);
-      fig.innerHTML =
-        '<img src="img/d' + im.c + '.webp" alt="' + im.t + ' em ' + im.b + ', ' + im.ci + '" ' +
-        (i === 0 ? 'fetchpriority="high"' : 'loading="lazy"') + ' width="1200" height="840">' +
+      var leve = (navigator.connection && navigator.connection.saveData) || calmo;
+      var midia = (im.v && !leve)
+        ? '<video src="video/' + im.c + '.mp4" poster="img/poster' + im.c + '.jpg" muted loop playsinline preload="none" ' +
+          'aria-label="' + im.t + ' em ' + im.b + ', vídeo"></video>'
+        : '<img src="img/d' + im.c + '.webp" alt="' + im.t + ' em ' + im.b + ', ' + im.ci + '" ' +
+          (i === 0 ? 'fetchpriority="high"' : 'loading="lazy"') + ' width="1200" height="840">';
+      fig.innerHTML = midia +
         '<div class="slide-txt">' +
           '<span class="eti">' + im.f + ' · cód. ' + im.c + '</span>' +
           '<h3>' + im.t + '<em>' + im.b + '</em></h3>' +
@@ -101,7 +105,13 @@
       var bs = pontos.querySelectorAll('button');
       for (var k = 0; k < bs.length; k++) bs[k].setAttribute('aria-current', k === atual ? 'true' : 'false');
       var sl = trilho.querySelectorAll('.slide');
-      for (var j = 0; j < sl.length; j++) sl[j].classList.toggle('ativo', j === atual);
+      for (var j = 0; j < sl.length; j++) {
+        sl[j].classList.toggle('ativo', j === atual);
+        var vd = sl[j].querySelector('video');
+        if (!vd) continue;
+        if (j === atual) { var pr = vd.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else { vd.pause(); }
+      }
     }
     function anda() { vaiPara(atual + 1); }
     function tocar() { if (!calmo && !timer) timer = setInterval(anda, 6500); }

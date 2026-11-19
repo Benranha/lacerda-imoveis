@@ -81,7 +81,7 @@ nav#menu a.pil:hover{background:var(--escuro);color:#fff}
 .janela{overflow:hidden;border-radius:var(--r-pan);box-shadow:var(--sombra-h);background:var(--escuro)}
 .trilho{display:flex;transition:transform .72s var(--ease);will-change:transform}
 .slide{position:relative;min-width:100%;display:flex;flex-direction:column;background:var(--escuro)}
-.slide>img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.slide>img,.slide>video{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
 .slide-txt{position:relative;z-index:2;padding:20px 22px 24px;color:#fff;
  display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 .slide-txt .eti{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;
@@ -263,7 +263,7 @@ body.pronto [data-load="5"]{transition-delay:.4s}
  .car-prev{left:auto;right:76px}
  .car-next{right:18px}
  .slide{display:block;aspect-ratio:21/9}
- .slide>img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+ .slide>img,.slide>video{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
  .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,8,.92) 0%,rgba(10,8,8,.5) 34%,rgba(10,8,8,0) 64%)}
  .slide-txt{position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,3.2vw,44px)}
 }
