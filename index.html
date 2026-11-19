@@ -74,13 +74,18 @@
 
  <div class="wrap">
   <form id="busca" class="busca" data-load="5" aria-label="Busca rápida de imóveis">
+   <div class="busca-cab">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.4 1.7 6.3L3 29l6.9-1.7c1.8 1 3.9 1.6 6.1 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm7.4 18.3c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.2-.5-.2-1.2-.4-2.1-.8-3.6-1.6-6-5.2-6.2-5.5-.2-.3-1.5-2-1.5-3.8 0-1.8.9-2.7 1.3-3.1.3-.4.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7.9 2.3 1 2.5.1.2.1.3 0 .5-.1.2-.2.4-.4.6l-.5.5c-.2.2-.3.3-.2.6.2.4 1 1.6 2 2.5 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.6.4.1.2.1 1-.2 1.9z"/></svg>
+    <div><strong>Diga o que você precisa e fale conosco</strong>
+     <span>Escolha nos três campos abaixo. A gente escreve a mensagem e abre o seu WhatsApp com ela pronta, é só apertar enviar.</span></div>
+   </div>
    <div class="campo"><label for="f">Finalidade</label>
     <select id="f" name="finalidade"><option value="">Qualquer</option><option>Venda</option><option>Locação</option><option>Temporada</option></select></div>
    <div class="campo"><label for="t">Tipo de imóvel</label>
     <select id="t" name="tipo"><option value="">Todos</option><option>Apartamento</option><option>Casa</option><option>Casa em condomínio</option><option>Terreno</option><option>Lote</option><option>Flat</option><option>Fazenda</option><option>Sala comercial</option><option>Galpão</option></select></div>
    <div class="campo"><label for="c">Cidade</label>
     <select id="c" name="cidade"><option value="">Todas</option><option>Manaus</option><option>Iranduba</option><option>Manacapuru</option><option>Autazes</option><option>Rio Preto da Eva</option></select></div>
-   <button class="pil forte" type="submit">Enviar pelo WhatsApp</button>
+   <button class="pil forte zap-bt" type="submit">Abrir o WhatsApp com isso</button>
   </form>
   <p class="dica" data-load="5"><span class="so-mouse">✦ mexa o mouse · clique e a planta se desenha</span><span class="so-toque">✦ toque na tela</span></p>
  </div>

@@ -114,6 +114,10 @@ nav#menu a.pil:hover{background:var(--escuro);color:#fff}
  background-repeat:no-repeat;background-position:right 12px center;background-size:18px}
 .campo select:hover{border-color:var(--marca)}
 .busca .pil{width:100%}
+.busca-cab{display:flex;gap:12px;align-items:flex-start;padding:4px 2px 14px;border-bottom:1px dashed var(--borda);margin-bottom:4px}
+.busca-cab svg{width:26px;height:26px;flex:0 0 auto;fill:#1b7a45;margin-top:2px}
+.busca-cab strong{display:block;font-family:var(--fd);font-size:1.22rem;font-weight:400;line-height:1.2}
+.busca-cab span{display:block;color:var(--tinta-s);font-size:.88rem;margin-top:3px;max-width:62ch}
 
 /* numeros */
 .numeros{padding:var(--s5) 0 var(--s4)}
@@ -233,6 +237,7 @@ body.pronto [data-load="5"]{transition-delay:.4s}
  .n-g>div{flex-direction:column;gap:6px;border:0;padding:0 0 0 22px;border-left:1px dashed var(--borda)}
  .n-g>div:first-child{border-left:0;padding-left:0}
  .busca{grid-template-columns:repeat(2,1fr);padding:22px}
+ .busca-cab{grid-column:1/-1}
  .busca .pil{grid-column:1/-1}
  .grade{grid-template-columns:repeat(2,minmax(0,1fr))}
  .passos-n{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
@@ -252,6 +257,7 @@ body.pronto [data-load="5"]{transition-delay:.4s}
  .marca img{width:118px;height:83px}
  .topo{padding:var(--s6) 0 var(--s4)}
  .busca{grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end;gap:16px}
+ .busca-cab{grid-column:1/-1;margin-bottom:2px}
  .busca .pil{grid-column:auto;width:auto;padding:0 30px}
  .grade{grid-template-columns:repeat(4,minmax(0,1fr))}
  .filtros{grid-template-columns:repeat(5,1fr) auto}
