@@ -147,7 +147,7 @@
     var todos = window.IMOVEIS.slice();
     var fTipo = document.getElementById('fTipo'), fBairro = document.getElementById('fBairro'),
         fFin = document.getElementById('fFin'), fPreco = document.getElementById('fPreco'),
-        fOrdem = document.getElementById('fOrdem'), conta = document.getElementById('conta'),
+        fOrdem = document.getElementById('fOrdem'), elConta = document.getElementById('conta'),
         btMais = document.getElementById('maisImoveis'), vazio = document.getElementById('semResultado');
     var mostrando = 12, filtrados = todos;
 
@@ -194,7 +194,7 @@
       });
       grade.innerHTML = filtrados.slice(0, mostrando).map(cartao).join('');
       ligarZap(grade);
-      conta.textContent = filtrados.length === 0 ? 'nenhum imóvel com esse filtro'
+      elConta.textContent = filtrados.length === 0 ? 'nenhum imóvel com esse filtro'
         : filtrados.length === 1 ? '1 imóvel encontrado'
         : filtrados.length + ' imóveis encontrados';
       vazio.hidden = filtrados.length > 0;
